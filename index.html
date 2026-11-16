@@ -1,0 +1,679 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Masum Aman | Personal Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #6c63ff;
+            --secondary: #25234a;
+            --background: #f8f9fc;
+            --white: #ffffff;
+            --text: #333333;
+            --muted: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Navigation Bar */
+
+        header {
+            background: var(--white);
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Common Section Styling */
+
+        section {
+            padding: 85px 10%;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            color: var(--secondary);
+            margin-bottom: 35px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* Home Section */
+
+        .home {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: linear-gradient(120deg, #f1f0ff, #ffffff);
+        }
+
+        .home-content {
+            flex: 1;
+        }
+
+        .home-content h3 {
+            font-size: 22px;
+            color: var(--primary);
+        }
+
+        .home-content h1 {
+            font-size: 48px;
+            color: var(--secondary);
+            margin: 10px 0;
+        }
+
+        .home-content h2 {
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
+
+        .home-content p {
+            color: var(--muted);
+            max-width: 550px;
+            margin-bottom: 25px;
+        }
+
+        .home-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-icon {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: #e3e1ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 110px;
+            box-shadow: 0 10px 30px rgba(108,99,255,0.15);
+        }
+
+        /* Buttons */
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 26px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+
+        .about {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            color: var(--muted);
+        }
+
+        /* Skills Section */
+
+        .skills {
+            background: var(--background);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(108,99,255,0.15);
+        }
+
+        .skill-card i {
+            font-size: 35px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .skill-card h3 {
+            color: var(--secondary);
+            font-size: 16px;
+        }
+
+        /* Projects Section */
+
+        .projects {
+            background: var(--white);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--background);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-card i {
+            font-size: 30px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+        }
+
+        /* Contact Section */
+
+        .contact {
+            background: var(--background);
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact-box p {
+            margin: 15px 0;
+            color: var(--muted);
+        }
+
+        .contact-box i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 22px;
+            font-size: 14px;
+        }
+
+        /* Tablet Responsive Design */
+
+        @media (max-width: 900px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            section {
+                padding: 65px 7%;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            .home-content h1 {
+                font-size: 38px;
+            }
+
+            .profile-icon {
+                width: 200px;
+                height: 200px;
+                font-size: 85px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile Responsive Design */
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 10px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px 16px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 55px 6%;
+                scroll-margin-top: 110px;
+            }
+
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+                min-height: auto;
+            }
+
+            .home-content h1 {
+                font-size: 34px;
+            }
+
+            .home-content h2 {
+                font-size: 17px;
+            }
+
+            .home-content h3 {
+                font-size: 18px;
+            }
+
+            .home-content p {
+                font-size: 14px;
+            }
+
+            .profile-icon {
+                width: 170px;
+                height: 170px;
+                font-size: 75px;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card {
+                padding: 18px 8px;
+            }
+
+            .skill-card h3 {
+                font-size: 13px;
+            }
+
+            .social-links {
+                gap: 12px;
+            }
+        }
+
+        /* Small Mobile Screens */
+
+        @media (max-width: 360px) {
+
+            .home-content h1 {
+                font-size: 29px;
+            }
+
+            nav {
+                gap: 8px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <header>
+
+        <div class="logo">Masum.</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+    <!-- Home Section -->
+
+    <section class="home" id="home">
+
+        <div class="home-content">
+
+            <h3>Hello, I'm</h3>
+
+            <h1>Masum Aman</h1>
+
+            <h2>B.Tech CSE Student | Technology Enthusiast</h2>
+
+            <p>
+                I am a Computer Science student at NIET,
+                Greater Noida. I am interested in technology,
+                cloud computing, product management and
+                data analytics. I enjoy learning new skills
+                and exploring new ideas.
+            </p>
+
+            <a href="#about" class="btn">
+                Know More
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <div class="home-image">
+
+            <div class="profile-icon">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+
+    <section class="about" id="about">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <p>
+            I am Masum Aman, a B.Tech Computer Science
+            Engineering student at NIET, Greater Noida.
+            I have basic knowledge of Python, AWS,
+            Cloud Computing, Linux and Data Structures.
+            I believe in continuous learning, teamwork
+            and personal growth. My career interests
+            include Product Management and Data Analytics.
+        </p>
+
+    </section>
+
+    <!-- Skills Section -->
+
+    <section class="skills" id="skills">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-aws"></i>
+                <h3>AWS</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-cloud"></i>
+                <h3>Cloud Computing</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-linux"></i>
+                <h3>Linux</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Data Structures</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-comments"></i>
+                <h3>Communication</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-users"></i>
+                <h3>Teamwork</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Problem Solving</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Projects Section -->
+
+    <section class="projects" id="projects">
+
+        <h2 class="section-title">
+            My <span>Projects</span>
+        </h2>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+
+                <i class="fas fa-cloud"></i>
+
+                <h3>Medical Research Cloud Platform</h3>
+
+                <p>
+                    An academic project focused on exploring
+                    how cloud computing can support medical
+                    research data storage and access.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <i class="fas fa-laptop-code"></i>
+
+                <h3>Personal Portfolio Website</h3>
+
+                <p>
+                    A personal portfolio website created
+                    using HTML and CSS to showcase my
+                    education, skills and projects.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">
+            Contact <span>Me</span>
+        </h2>
+
+        <div class="contact-box">
+
+            <p>
+                Let's connect and learn together.
+            </p>
+
+            <p>
+                <i class="fas fa-envelope"></i>
+                Email: Add Your Email Here
+            </p>
+
+            <p>
+                <i class="fas fa-location-dot"></i>
+                Location: Greater Noida, India
+            </p>
+
+            <div class="social-links">
+
+                <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://github.com/" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Masum Aman | All Rights Reserved
+        </p>
+
+    </footer>
+
+</body>
+</html>
